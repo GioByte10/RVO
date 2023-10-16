@@ -266,7 +266,7 @@ squaresByReference(std::vector<int, std::allocator<int> >&):
 	ret                             
 ```
 ## References
-[return a vector vs use a parameter for the vector to return it](https://stackoverflow.com/questions/12953127/what-are-copy-elision-and-return-value-optimization/12953129#12953129)
+[return a vector vs use a parameter for the vector to return it](https://stackoverflow.com/questions/12953127/what-are-copy-elision-and-return-value-optimization/12953129#12953129)<br>
 [C++ return value optimization](https://stackoverflow.com/questions/19454068/c-return-value-optimization)
 <br>
 <br>
