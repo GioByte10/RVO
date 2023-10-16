@@ -265,7 +265,10 @@ squaresByReference(std::vector<int, std::allocator<int> >&):
 	pop    %rbp                     
 	ret                             
 ```
-
+## References
+[return a vector vs use a parameter for the vector to return it](https://stackoverflow.com/questions/12953127/what-are-copy-elision-and-return-value-optimization/12953129#12953129)
+<br>
+<br>
 With the premise that all of my assumptions and interpretations are correct, the compiler does perform Return Value Optimization (RVO) for the `squaresByValue()` function, avoiding the copy constructor call. There is almost no difference between returning the vector by value (since the compiler optimizes it) and passing it by reference. The only main difference is that in `squaresByValue()` the function does have to create the local vector, such that the effective memory address we stored in `%rax` is the place in memory where this local vector is stored. We can see that the program fails to destroy this vector, and thus fails to free its memory, by skipping the destructor call with a `jump` statement, meaning that our `squares` vector in main will now point to an initialized vector.
 On the other hand, when calling `squaresByReference()` we can see that the program executes the same instructions it did for `squaresByValue()`, further proving that the difference between these two is negligible. Of course in this case there is already memory allocated for `squares` so there is no more vector initialization.
 
